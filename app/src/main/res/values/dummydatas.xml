@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="oni_iukoto">あかおに</string>
+    <string name="oni_iukoto_denwa">02x00-7595-7257</string>
+    <string name="oni_iukoto_title">言うことを書かない時</string>
+
+    <integer-array name="akaonii">
+        <item>@string/oni_iukoto_title</item>
+        <item>@string/oni_iukoto_denwa</item>
+        <item>@string/oni_iukoto_denwa</item>
+        <item>@drawable/oni_iukoto_calling_20170523</item>
+        <item>@drawable/bg_btn_large_oni_20170525</item>
+        <item>@string/oni_iukoto</item>
+    </integer-array>
+
+    <array name="list">
+        <item>@array/akaonii</item>
+    </array>
+
+</resources>

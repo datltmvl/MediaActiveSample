@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/timer_popup_bg"
+    android:padding="@dimen/timer_popup_padding">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="@string/timer_setting_guide"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_timer_10"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/tv_title"
+        android:layout_marginBottom="@dimen/timer_margin"
+        android:layout_marginTop="@dimen/timer_margin"
+        android:background="@drawable/btn_timer_10" />
+
+    <Button
+        android:id="@+id/btn_timer_30"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/tv_title"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/timer_margin"
+        android:background="@drawable/btn_timer_30" />
+
+    <Button
+        android:id="@+id/btn_timer_50"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tv_title"
+        android:layout_marginBottom="@dimen/timer_margin"
+        android:layout_marginTop="@dimen/timer_margin"
+        android:background="@drawable/btn_timer_50" />
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/btn_timer_10"
+        android:text="@string/string_cancel"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+</RelativeLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".PhoneRingingFragment">
+
+    <ImageView
+        android:padding="5dp"
+        android:scaleType="centerCrop"
+        android:id="@+id/imageCaller"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom"
+        android:src="@drawable/oni_iukoto_calling_20170523" />
+
+    <LinearLayout
+        android:padding="5dp"
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_accept"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/cbtn1" />
+
+        <Button
+            android:id="@+id/btn_denial"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/cbtn2" />
+
+    </LinearLayout>
+
+</RelativeLayout>
