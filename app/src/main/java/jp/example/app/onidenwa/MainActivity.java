@@ -145,8 +145,12 @@ public class MainActivity extends AppCompatActivity
 
     private void makeCall(DummyContent.DummyItem item) {
         Intent intent = new Intent(this, PhoneActivity.class);
-        intent.putExtra(PhoneActivity.CALLER_AVATAR, item.avatar);
-        intent.putExtra(PhoneActivity.CALLER_VOICE, item.content);
+        Bundle bundle = new Bundle();
+        bundle.putInt(PhoneActivity.CALLER_AVATAR, item.avatar);
+        bundle.putInt(PhoneActivity.CALLER_VOICE, item.content);
+        bundle.putString(PhoneActivity.PHONE_NUMBER, item.tel);
+        bundle.putString(PhoneActivity.CALLER_NAME, item.name);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
 /**
@@ -25,10 +26,12 @@ public class PhoneCallingFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static final String ARG_PARAM3 = "param3";
 
     // TODO: Rename and change types of parameters
     private int mParam1 = -1;
     private int mParam2 = -1;
+    private String mParam3;
 
     private OnTerminalCallListener mListener;
 
@@ -48,14 +51,16 @@ public class PhoneCallingFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
+     * @param param3 Parameter 3.
      * @return A new instance of fragment PhoneRingingFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static PhoneCallingFragment newInstance(int param1, int param2) {
+    public static PhoneCallingFragment newInstance(int param1, int param2, String param3) {
         PhoneCallingFragment fragment = new PhoneCallingFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_PARAM1, param1);
         args.putInt(ARG_PARAM2, param2);
+        args.putString(ARG_PARAM3, param3);
         fragment.setArguments(args);
         return fragment;
     }
@@ -66,6 +71,7 @@ public class PhoneCallingFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getInt(ARG_PARAM1);
             mParam2 = getArguments().getInt(ARG_PARAM2);
+            mParam3 = getArguments().getString(ARG_PARAM3);
         }
 
     }
@@ -90,6 +96,11 @@ public class PhoneCallingFragment extends Fragment {
             mImgCaller.setImageResource(mParam2);
         }
 
+        // setup display info
+        TextView textView = root.findViewById(R.id.tv_title);
+        if (mParam3 != null) {
+            textView.setText(getString(R.string.string_calling_info, mParam3));
+        }
         return root;
     }
 

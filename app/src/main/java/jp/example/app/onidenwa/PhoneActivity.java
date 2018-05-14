@@ -10,8 +10,12 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 
-import static jp.example.app.onidenwa.PhoneCallingFragment.*;
-import static jp.example.app.onidenwa.PhoneRingingFragment.*;
+import static jp.example.app.onidenwa.PhoneCallingFragment.OnTerminalCallListener;
+import static jp.example.app.onidenwa.PhoneCallingFragment.newInstance;
+import static jp.example.app.onidenwa.PhoneRingingFragment.CUT_OFF_PHONE;
+import static jp.example.app.onidenwa.PhoneRingingFragment.OnFragmentInteractionListener;
+import static jp.example.app.onidenwa.PhoneRingingFragment.PICK_UP_PHONE;
+import static jp.example.app.onidenwa.PhoneRingingFragment.newInstance;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -22,6 +26,8 @@ public class PhoneActivity extends AppCompatActivity
 
     public static final String CALLER_AVATAR = "CALLER_AVATAR";
     public static final String CALLER_VOICE = "CALLER_VOICE";
+    public static final String PHONE_NUMBER = "PHONE_NUMBER";
+    public static final String CALLER_NAME = "CALLER_NAME";
 
     private InterstitialAd mInterstitialAd;
 
@@ -32,7 +38,8 @@ public class PhoneActivity extends AppCompatActivity
         setContentView(R.layout.activity_phone);
         // Create new fragment and transaction
         Fragment newFragment = newInstance(getIntent().getIntExtra(CALLER_AVATAR,
-                R.drawable.oni_iukoto_calling_20170523));
+                R.drawable.oni_iukoto_calling_20170523), getIntent().getStringExtra(CALLER_NAME).
+                concat("\n").concat(getIntent().getStringExtra(PHONE_NUMBER)));
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         // Replace whatever is in the fragment_container view with this fragment,
@@ -64,7 +71,8 @@ public class PhoneActivity extends AppCompatActivity
 
             getSupportFragmentManager().popBackStack();
             // Create new fragment and transaction
-            Fragment newFragment = newInstance(voice, avatar);
+            Fragment newFragment = newInstance(voice, avatar,
+                    getIntent().getStringExtra(CALLER_NAME));
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             // Replace whatever is in the fragment_container view with this fragment,
             // and add the transaction to the back stack if needed

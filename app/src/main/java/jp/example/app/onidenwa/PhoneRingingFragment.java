@@ -2,7 +2,6 @@ package jp.example.app.onidenwa;
 
 import android.content.Context;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
 /**
@@ -29,6 +29,7 @@ public class PhoneRingingFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
     private int mParam1 = -1;
@@ -36,7 +37,7 @@ public class PhoneRingingFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    MediaPlayer mMediaPlayer;
+    private MediaPlayer mMediaPlayer;
     // button accept call
     private Button mBtnAccept;
     // button denial call
@@ -51,13 +52,15 @@ public class PhoneRingingFragment extends Fragment {
      * this fragment using the provided parameters.
      *
      * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
      * @return A new instance of fragment PhoneRingingFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static PhoneRingingFragment newInstance(int param1) {
+    public static PhoneRingingFragment newInstance(int param1, String param2) {
         PhoneRingingFragment fragment = new PhoneRingingFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -67,6 +70,7 @@ public class PhoneRingingFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getInt(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
@@ -78,6 +82,11 @@ public class PhoneRingingFragment extends Fragment {
         ImageView imageView = root.findViewById(R.id.imageCaller);
         if (mParam1 != -1) {
             imageView.setImageResource(mParam1);
+        }
+
+        TextView textView = root.findViewById(R.id.tv_title);
+        if(mParam2 != null) {
+            textView.setText(getString(R.string.string_ringing_info, mParam2));
         }
         mBtnAccept = root.findViewById(R.id.btn_accept);
         mBtnAccept.setOnClickListener(new View.OnClickListener() {
@@ -116,11 +125,10 @@ public class PhoneRingingFragment extends Fragment {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnTerminalCallListener");
         }
-//        else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnTerminalCallListener");
-//        }
     }
 
     @Override

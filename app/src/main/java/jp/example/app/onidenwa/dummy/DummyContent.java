@@ -41,13 +41,13 @@ public class DummyContent {
 
     private static DummyItem createDummyItem(int position) {
         if(position%3 == 0) {
-            return new DummyItem(String.valueOf(position), "寝ないとき", "02x00-7595-7257",
+            return new DummyItem(String.valueOf(position), "寝ないとき", "04x00-8888-7257",
                     R.raw.jp_namahage_red_iukoto_20170523, R.drawable.namahage_red_iukoto_20170523,
-                    R.drawable.bg_btn_large_namahage_201701_20170525);
+                    R.drawable.bg_btn_large_namahage_201701_20170525, "なまはげ");
         }
         return new DummyItem(String.valueOf(position), "言うことを書かない時", "02x00-7595-7257",
                 R.raw.oni_iukoto_jp_old_talking_20170524, R.drawable.oni_iukoto_calling_20170523,
-                R.drawable.bg_btn_large_oni_20170525);
+                R.drawable.bg_btn_large_oni_20170525,  "あかおに");
     }
 
     /**
@@ -60,15 +60,17 @@ public class DummyContent {
         public final String title;
         public final int avatar;
         public final int background;
+        public final String name;
 
         public DummyItem(String id, String title, String tel, int contentResid, int avatarResid,
-                         int background) {
+                         int background, String name) {
             this.id = id;
             this.content = contentResid;
             this.title = title;
             this.avatar = avatarResid;
             this.tel = tel;
             this.background = background;
+            this.name = name;
         }
 
         @Override

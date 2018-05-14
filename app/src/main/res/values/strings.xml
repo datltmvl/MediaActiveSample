@@ -18,4 +18,7 @@
     <string name="timer_setting_guide">設定したい秒数のボタンを押した後に\n使いたいシチュエーションボタンを押してください</string>
     <string name="string_cancel">キャンセル</string>
     <string name="string_waiting_noti">%1$d秒タイマーカウント中\nこの画面まま、お待ちください</string>
+    <string name="string_ringing_info">着信中\n%1$s</string>
+    <string name="string_calling_info">応答中\n%1$s</string>
+
 </resources>
